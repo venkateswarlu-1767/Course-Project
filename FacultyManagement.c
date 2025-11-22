@@ -10,27 +10,38 @@ struct Faculty
     char qualification[50];
 };
 
+void clearInputBuffer()
+{
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF)
+        ;
+}
+
 void addFaculty()
 {
     FILE *fp = fopen("faculty.txt", "a");
+    if (!fp)
+    {
+        printf("\nError opening file.\n");
+        return;
+    }
+
     struct Faculty f;
 
     printf("\nEnter Faculty ID: ");
     scanf("%d", &f.id);
+    clearInputBuffer();
 
     printf("Enter Faculty Name: ");
-    fflush(stdin);
-    fgets(f.name, 50, stdin);
+    fgets(f.name, sizeof(f.name), stdin);
     f.name[strcspn(f.name, "\n")] = '\0';
 
     printf("Enter Department: ");
-    fflush(stdin);
-    fgets(f.department, 50, stdin);
+    fgets(f.department, sizeof(f.department), stdin);
     f.department[strcspn(f.department, "\n")] = '\0';
 
     printf("Enter Qualification: ");
-    fflush(stdin);
-    fgets(f.qualification, 50, stdin);
+    fgets(f.qualification, sizeof(f.qualification), stdin);
     f.qualification[strcspn(f.qualification, "\n")] = '\0';
 
     fprintf(fp, "%d,%s,%s,%s\n", f.id, f.name, f.department, f.qualification);
@@ -42,19 +53,19 @@ void addFaculty()
 void viewFaculty()
 {
     FILE *fp = fopen("faculty.txt", "r");
-    struct Faculty f;
-
     if (!fp)
     {
         printf("\nNo faculty records found.\n");
         return;
     }
 
+    struct Faculty f;
     printf("\n--- All Faculty Records ---\n");
 
-    while (fscanf(fp, "%d,%[^,],%[^,],%[^,\n]\n",
-                  &f.id, f.name, f.department, f.qualification) != EOF)
+    while (fscanf(fp, "%d,%49[^,],%49[^,],%49[^\n]\n",
+                  &f.id, f.name, f.department, f.qualification) == 4)
     {
+
         printf("\nID: %d\nName: %s\nDepartment: %s\nQualification: %s\n",
                f.id, f.name, f.department, f.qualification);
     }
@@ -65,21 +76,22 @@ void viewFaculty()
 void searchFaculty()
 {
     FILE *fp = fopen("faculty.txt", "r");
-    struct Faculty f;
-    int id, found = 0;
-
     if (!fp)
     {
         printf("\nNo faculty records found.\n");
         return;
     }
 
+    struct Faculty f;
+    int id, found = 0;
+
     printf("\nEnter Faculty ID to search: ");
     scanf("%d", &id);
 
-    while (fscanf(fp, "%d,%[^,],%[^,],%[^,\n]\n",
-                  &f.id, f.name, f.department, f.qualification) != EOF)
+    while (fscanf(fp, "%d,%49[^,],%49[^,],%49[^\n]\n",
+                  &f.id, f.name, f.department, f.qualification) == 4)
     {
+
         if (f.id == id)
         {
             printf("\nFACULTY FOUND!\n");
@@ -102,13 +114,21 @@ int main()
 
     while (1)
     {
-        printf("\n==== FACULTY MANAGEMENT SYSTEM (Simple) ====\n");
+        printf("\n==== FACULTY MANAGEMENT SYSTEM ====\n");
         printf("1. Add Faculty\n");
         printf("2. View All Faculty\n");
         printf("3. Search Faculty by ID\n");
         printf("4. Exit\n");
         printf("Enter your choice: ");
-        scanf("%d", &choice);
+
+        if (scanf("%d", &choice) != 1)
+        {
+            printf("Invalid input! Please enter a number.\n");
+            clearInputBuffer();
+            continue;
+        }
+
+        clearInputBuffer();
 
         switch (choice)
         {
