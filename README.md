@@ -151,19 +151,28 @@ Stores all faculty data in binary form
 
 *Add Faculty
 
-*<img width="396" height="298" alt="Screenshot 2025-11-26 104710" src="https://github.com/user-attachments/assets/533be0af-881f-4a47-a746-8bd65a0a9437" />
+*<img width="398" height="331" alt="Screenshot 2025-11-26 152112" src="https://github.com/user-attachments/assets/57efcaa4-6fe7-4295-9406-2d713865ccf5" />
 
 *Display Faculty
 
-*<img width="368" height="283" alt="Screenshot 2025-11-26 104733" src="https://github.com/user-attachments/assets/d827b067-f125-45f3-9860-6834ddc5110a" />
+*<img width="459" height="542" alt="Screenshot 2025-11-26 152132" src="https://github.com/user-attachments/assets/be26f77d-d281-4cca-9792-676ba2381367" />
+
 
 *Search Faculty
 
-*<img width="381" height="315" alt="Screenshot 2025-11-26 104809" src="https://github.com/user-attachments/assets/f8f3c446-1fba-426f-9c61-2cb43e7399ff" />
+*<img width="464" height="347" alt="Screenshot 2025-11-26 152204" src="https://github.com/user-attachments/assets/928848cf-c70c-43e7-b046-d0e9806112f6" />
+
+
+*Delate Faculty
+
+*<img width="354" height="251" alt="Screenshot 2025-11-26 152221" src="https://github.com/user-attachments/assets/c03cf672-045e-4495-9bba-88a41e4f58c5" />
+*<img width="469" height="434" alt="Screenshot 2025-11-26 152317" src="https://github.com/user-attachments/assets/4ec22064-81a8-4c76-a56a-cd6739ded68c" />
+
 
 *Exit
 
-*<img width="323" height="125" alt="Screenshot 2025-11-26 104828" src="https://github.com/user-attachments/assets/a6c97551-f078-4d3d-adf8-cf91668976db" />
+*<img width="344" height="159" alt="Screenshot 2025-11-26 152345" src="https://github.com/user-attachments/assets/8202258a-78a9-4b95-bbb8-4f0da1d82568" />
+
 
 ##📝 **Author**
 
