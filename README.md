@@ -12,15 +12,24 @@ This project demonstrates key C programming concepts including **structures**, *
 ## ✨ **FEATURES**
 Core Functionalities
 
-➕ Add new faculty member records (ID No, Name, Age, Department, Mobile No)
+➕ Add new faculty member records (ID No, Name, Age, Department, Mobile No) 
+
 📋 Display all faculty records in a formatted table
+
 🔍 Search faculty by ID Number
+
 ✏️ Update existing faculty information
+
 ❌ Delete faculty records
+
 💾 Persistent data storage using binary file (faculty.txt)
+
 🖥️ Fully terminal-based, menu-driven interface
+
 👨‍💻 Beginner-friendly modular code
+
 ⚙️ Auto-creates the data file if missing
+
 ⚠️ Includes basic input validation & error handling
 
 ## 🛠️ **TECHNICAL REQUIREMENTS**
