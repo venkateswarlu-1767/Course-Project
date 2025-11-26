@@ -120,6 +120,7 @@ Shows clear success/error messages appropriately
 ## ▶️ **Running the Program**
 ## 1️⃣ **Compile
 gcc faculty.c -o faculty
+ 
 ###  2️⃣ Run
 
 **Linux / macOS**
@@ -139,15 +140,21 @@ Stores all faculty data in binary form
 
 ## 📸 **Screenshots (Optional)**
 
-Add Faculty
+*Add Faculty
 
-Display Faculty
+*<img width="396" height="298" alt="Screenshot 2025-11-26 104710" src="https://github.com/user-attachments/assets/533be0af-881f-4a47-a746-8bd65a0a9437" />
 
-Search Faculty
+*Display Faculty
 
-Delete Faculty
+*<img width="368" height="283" alt="Screenshot 2025-11-26 104733" src="https://github.com/user-attachments/assets/d827b067-f125-45f3-9860-6834ddc5110a" />
 
-Exit
+*Search Faculty
+
+*<img width="381" height="315" alt="Screenshot 2025-11-26 104809" src="https://github.com/user-attachments/assets/f8f3c446-1fba-426f-9c61-2cb43e7399ff" />
+
+*Exit
+
+*<img width="323" height="125" alt="Screenshot 2025-11-26 104828" src="https://github.com/user-attachments/assets/a6c97551-f078-4d3d-adf8-cf91668976db" />
 
 ##📝 **Author**
 
