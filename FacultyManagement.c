@@ -65,7 +65,6 @@ void viewFaculty()
     while (fscanf(fp, "%d,%49[^,],%49[^,],%49[^\n]\n",
                   &f.id, f.name, f.department, f.qualification) == 4)
     {
-
         printf("\nID: %d\nName: %s\nDepartment: %s\nQualification: %s\n",
                f.id, f.name, f.department, f.qualification);
     }
@@ -91,7 +90,6 @@ void searchFaculty()
     while (fscanf(fp, "%d,%49[^,],%49[^,],%49[^\n]\n",
                   &f.id, f.name, f.department, f.qualification) == 4)
     {
-
         if (f.id == id)
         {
             printf("\nFACULTY FOUND!\n");
@@ -108,6 +106,57 @@ void searchFaculty()
     fclose(fp);
 }
 
+/* ==========================
+   DELETE FACULTY FUNCTION
+   ========================== */
+void deleteFaculty()
+{
+    FILE *fp = fopen("faculty.txt", "r");
+    if (!fp)
+    {
+        printf("\nNo faculty records found.\n");
+        return;
+    }
+
+    FILE *temp = fopen("temp.txt", "w");
+    if (!temp)
+    {
+        printf("\nError creating temporary file.\n");
+        fclose(fp);
+        return;
+    }
+
+    struct Faculty f;
+    int id, found = 0;
+
+    printf("\nEnter Faculty ID to delete: ");
+    scanf("%d", &id);
+
+    while (fscanf(fp, "%d,%49[^,],%49[^,],%49[^\n]\n",
+                  &f.id, f.name, f.department, f.qualification) == 4)
+    {
+        if (f.id == id)
+        {
+            found = 1; // Skip writing this record
+            continue;
+        }
+
+        fprintf(temp, "%d,%s,%s,%s\n",
+                f.id, f.name, f.department, f.qualification);
+    }
+
+    fclose(fp);
+    fclose(temp);
+
+    remove("faculty.txt");
+    rename("temp.txt", "faculty.txt");
+
+    if (found)
+        printf("\nFaculty deleted successfully!\n");
+    else
+        printf("\nFaculty ID not found.\n");
+}
+
 int main()
 {
     int choice;
@@ -118,7 +167,8 @@ int main()
         printf("1. Add Faculty\n");
         printf("2. View All Faculty\n");
         printf("3. Search Faculty by ID\n");
-        printf("4. Exit\n");
+        printf("4. Delete Faculty by ID\n");
+        printf("5. Exit\n");
         printf("Enter your choice: ");
 
         if (scanf("%d", &choice) != 1)
@@ -142,6 +192,9 @@ int main()
             searchFaculty();
             break;
         case 4:
+            deleteFaculty();
+            break;
+        case 5:
             exit(0);
         default:
             printf("\nInvalid choice! Try again.\n");
